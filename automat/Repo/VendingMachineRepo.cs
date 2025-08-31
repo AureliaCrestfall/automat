@@ -1,13 +1,15 @@
-﻿using System;
+﻿using automat.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace automat
+namespace automat.Repo
 {
-    internal class VendingMachine
+    internal class VendingMachineRepo
     {
+        Queue<Product> Stock = new Queue<Product>();
         int _coinStoage;
         Dictionary<string, Product> _produtPlacement;
         int CoinStoage
@@ -30,9 +32,9 @@ namespace automat
             CoinStoage = 0;
             return CoinsGained;
         }
-        public int Buy(string product,int coin)
+        public int Buy(string product, int coin)
         {
-            int  leftOverCoin= 0;
+            int leftOverCoin = 0;
             return leftOverCoin;
         }
         public void Restock()
@@ -49,7 +51,5 @@ namespace automat
             CoinStoage = 0;
             ProdutPlacement = new Dictionary<string, Product>();
         }
-
-
     }
 }

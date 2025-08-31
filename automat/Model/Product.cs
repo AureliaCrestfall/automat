@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace automat
+namespace automat.Model
 {
     internal class Product
     {
@@ -22,7 +22,7 @@ namespace automat
             get { return _pris; }
             set { _pris = value; }
         }
-        Queue<Product> Stock 
+        Queue<Product> Stock
         {
             get { return _stock; }
             set { _stock = value; }
@@ -33,12 +33,12 @@ namespace automat
             Pris = newPris;
         }
 
-        public Product(double pris,string name)
+        public Product(double pris, string name)
         {
             Pris = pris;
             Name = name;
-            Stock = new Queue<Product>();
-
+    
         }
+
     }
 }
