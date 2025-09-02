@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace automat.Repo
 {
-    internal class VendingMachineRepo
+    internal class VendingMachineRepo:IVendingMachine
     {
         Queue<Product> Stock = new Queue<Product>();
         int _coinStoage;
@@ -22,9 +22,18 @@ namespace automat.Repo
             get { return _produtPlacement; }
             set { _produtPlacement = value; }
         }
+
+
+
+
+
+
+
+
+        
         public void RestockCoinStoage(int newcoin)
         {
-            CoinStoage = CoinStoage + newcoin;
+            CoinStoage += newcoin;
         }
         public int EmptyCoinStoage()
         {
@@ -34,6 +43,10 @@ namespace automat.Repo
         }
         public int Buy(string product, int coin)
         {
+            if (ProdutPlacement.ContainsKey(product))
+            {
+
+            }
             int leftOverCoin = 0;
             return leftOverCoin;
         }
@@ -41,15 +54,22 @@ namespace automat.Repo
         {
 
         }
-        public void addProduct()
+        public void addProduct(string newProductName, int newProductPrise)
         {
 
+            Product productSemiPlacement = new Product(newProductPrise, newProductName);
+            ProdutPlacement.Add("12e", productSemiPlacement);
         }
+        
 
-        public VendingMachine()
+        public VendingMachineRepo()
         {
             CoinStoage = 0;
             ProdutPlacement = new Dictionary<string, Product>();
+            ProdutPlacement.Add("a1", new Product( 20, "faxe"));
+            ProdutPlacement.Add("a2", new Product(20, "cola"));
+            ProdutPlacement.Add("a3", new Product(20, "ice tea"));
+            ProdutPlacement.Add("a4", new Product(2, "monster"));
         }
     }
 }
