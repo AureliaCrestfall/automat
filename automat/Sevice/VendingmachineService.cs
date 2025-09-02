@@ -16,29 +16,40 @@ namespace automat.Sevice
         {
             _vendingMahince = repo;
         }
-        public void RestockCoinStoage(int newcoin)
+        public void RestockCoinStoage(double newcoin)
         {
             _vendingMahince.RestockCoinStoage(newcoin);
         }
 
-        public int EmptyCoinStoage()
+        public double EmptyCoinStoage()
         {
             return _vendingMahince.EmptyCoinStoage();
         }
+        
 
-        public int Buy(string product, int coin)
+        public Product Buy(string product, double coin)
         {
-            return 1;
+            Dictionary<string, Queue<Product>> buyDictionary = _vendingMahince.GetAll();
+            Product itembuying = buyDictionary[product].Peek();
+            if (coin >= itembuying.Pris && buyDictionary[product].Count !<=0)
+            {
+                return _vendingMahince.Buy(product, coin);
+
+            }
+            else
+            {
+                return null;
+            }
         }
 
-        public void Restock()
+        public void Restock(string productPlace)
         {
-
+            _vendingMahince.Restock(productPlace);
         }
 
-        public void addProduct()
+        public void addProduct(string newProductName, double newProductPrise, string productPlace)
         {
-
+            _vendingMahince.AddProduct( newProductName, newProductPrise,productPlace);
         }
        
     }

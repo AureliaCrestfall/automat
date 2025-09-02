@@ -11,12 +11,12 @@ namespace automat.Model
         string _name;
         double _pris;
 
-        string Name
+       public string Name
         {
             get { return _name; }
             set { _name = value; }
         }
-        double Pris
+       public double Pris
         {
             get { return _pris; }
             set { _pris = value; }
@@ -28,6 +28,10 @@ namespace automat.Model
             Pris = pris;
             Name = name;
     
+        }
+        public override string ToString()
+        {
+            return Name;
         }
 
     }

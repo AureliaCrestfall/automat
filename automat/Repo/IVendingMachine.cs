@@ -9,18 +9,18 @@ namespace automat.Repo
 {
     internal interface IVendingMachine
     {
-       
-       
-        
-        void RestockCoinStoage(int newcoin);
 
-        int EmptyCoinStoage();
+        Dictionary<string, Queue<Product>> GetAll();
 
-        int Buy(string product, int coin);
+        void RestockCoinStoage(double newcoin);
+
+        double EmptyCoinStoage();
+
+        Product Buy(string product, double coin);
         
-        void Restock();
+        void Restock(string productPlace);
        
-        void addProduct();
+        void AddProduct(string newProductName, double newProductPrise, string productPlace);
 
 
     }
