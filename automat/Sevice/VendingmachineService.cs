@@ -37,8 +37,8 @@ namespace automat.Sevice
         public Product Buy(string product, double coin)
         {
             Dictionary<string, Product> buyDictionary = _vendingMahince.GetAll();
+           
             Product itembuying = buyDictionary[product];
-            Console.WriteLine(itembuying);
             if (coin >= itembuying.Pris)
             {
                 return _vendingMahince.Buy(product, coin);

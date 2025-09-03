@@ -16,27 +16,23 @@ namespace automat
             Dictionary<string, Product> vendingmachine = vendingservice.GetAll();
 
 
-            
 
 
+            Console.WriteLine("here is a list of the current items we have");
 
             foreach (KeyValuePair<string, Product> kv in vendingmachine)
             {
                 vendingservice.Restock(kv.Key);
                 string place = kv.Key;
 
-                Console.WriteLine("place" + kv.Key + "item" + vendingmachine[place]);
+                Console.WriteLine("place " + kv.Key + " "+ vendingmachine[place]+ " price "+ vendingmachine[place].Pris+" coins");
 
             }
             vendingmachine = vendingservice.GetAll();
-            foreach (KeyValuePair<string, Product> kv in vendingmachine)
-            {
-            }
-            Console.WriteLine(vendingservice.Buy("a1", 200));
-            Console.WriteLine("change got" +vendingservice.GetChange());
+           
+            
  
 
-            //draw vendingmachine
             
             bool unpaid = false;
 
@@ -48,11 +44,24 @@ namespace automat
                 Console.Write("enter coins: ");
                 int coin = int.Parse(Console.ReadLine());
 
-                    Console.WriteLine(vendingservice.Buy(choois, coin));
-                    Console.WriteLine(vendingservice.GetChange());
+                    Console.WriteLine(vendingservice.Buy(choois, coin)+" obtained");
+                    Console.WriteLine("you get "+vendingservice.GetChange()+" coins back");
 
 
-              
+                Console.Write("type 1 if you wish to buy more from the vending machine: ");
+                try
+                {
+                    string continu = Console.ReadLine();
+                    if(continu != "1")
+                    {
+                        unpaid = true;
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("thank you for using the vending machine");
+                }
+                
             }
 
 

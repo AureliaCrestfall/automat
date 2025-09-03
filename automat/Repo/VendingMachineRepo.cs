@@ -74,7 +74,7 @@ namespace automat.Repo
         }
         /// <summary>
         /// handles buying products by using the param product to location the product as the key value
-        /// and coin as the payment for the product and then putting the left over double in _leftOverCoin
+        /// and coin as the payment for the product and then putting the left over double value in _leftOverCoin
         /// for the use of the GetChange method and then returning a prodct by dequeueing the dictionary
         /// else if the dictionary doesn't conntain the key value it reurns null
         /// </summary>
@@ -105,7 +105,7 @@ namespace automat.Repo
         /// <param name="productPlace">for finding the kay value in the dictionaries</param>
         public void Restock(string productPlace)
         { 
-               while(ProdutPlacements[productPlace].Count() >= 10) 
+               while(ProdutPlacements[productPlace].Count() <= 10) 
                {
                     ProdutPlacements[productPlace].Enqueue(Products[productPlace]);
                }
