@@ -9,17 +9,16 @@ namespace automat.Repo
 {
     internal interface IVendingMachine
     {
+        /// <summary>
+        /// contract for vendingmachineRepo so it has to include the following metodes
+        /// </summary>
 
-        Dictionary<string, Queue<Product>> GetAll();
-
+        Dictionary<string, Product> GetAll();
         void RestockCoinStoage(double newcoin);
-
         double EmptyCoinStoage();
-
+        Double GetChange();
         Product Buy(string product, double coin);
-        
         void Restock(string productPlace);
-       
         void AddProduct(string newProductName, double newProductPrise, string productPlace);
 
 
